@@ -30,6 +30,7 @@ export default defineConfig({
       { text: "Guide", link: "/guide/" },
       { text: "Architecture", link: "/architecture/" },
       { text: "Benchmarks", link: "/benchmarks/" },
+      { text: "Operations", link: "/architecture/operations-observability" },
       { text: "FAQ", link: "/faq" },
     ],
     sidebar: {
@@ -49,6 +50,8 @@ export default defineConfig({
             { text: "Overview", link: "/architecture/" },
             { text: "Transactions & Concurrency", link: "/architecture/transactions" },
             { text: "Multi-model Consistency", link: "/architecture/multi-model-consistency" },
+            { text: "Supported Guarantees", link: "/architecture/supported-guarantees" },
+            { text: "Operations & Observability", link: "/architecture/operations-observability" },
           ],
         },
         {

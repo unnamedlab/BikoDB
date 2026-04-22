@@ -47,4 +47,6 @@ The most important thing for external users is that **not every crate is equally
 - [Quickstart →](/guide/quickstart)
 - [Supported features & limitations →](/guide/supported-features)
 - [Transactions & concurrency →](/architecture/transactions)
+- [Supported guarantees →](/architecture/supported-guarantees)
+- [Operations & observability →](/architecture/operations-observability)
 - [Benchmark methodology →](/benchmarks/methodology)

@@ -41,6 +41,41 @@ No.
 
 A graph transaction implementation exists in `bikodb-graph`, but that should not be read as a full public transactional contract across graph, document, and vector subsystems.
 
+## How do conflicting updates across models on the same node work today?
+
+The safe answer is: BikoDB does **not** yet document a hardened public cross-model conflict-resolution contract.
+
+The repository does support multi-model composition behind one `Database` facade, but that should not be interpreted as shared versioning, OCC/MVCC conflict detection, or atomic cross-model commits across graph, document, and vector state.
+
+## Is there cross-model atomicity or rollback?
+
+Not as a published public guarantee today.
+
+The strongest transaction story in the repo is graph-scoped. Cross-model helpers should currently be understood as composition helpers rather than one documented all-model transaction protocol.
+
+## Is there version-based conflict detection?
+
+Not as a documented public feature today.
+
+If someone is evaluating BikoDB for enterprise-style conflict semantics, they should currently treat that as future work rather than an existing external contract.
+
+## What observability exists today?
+
+Useful internal primitives already exist:
+
+- resource counters and snapshots,
+- execution/access tracking,
+- `EXPLAIN` plan formatting,
+- event and live-query hooks.
+
+What does **not** yet exist is a fully polished operator-facing suite for slow-query tooling, profiling, timeouts, cancellation, and admission control.
+
+## How does BikoDB behave under messy real workloads?
+
+The honest answer today is that the repo is strongest for embedded evaluation, graph-centric workloads, and controlled benchmarking.
+
+It is less mature as a documented product story for partial failures, overloaded systems, long-running query control, and other operator-heavy scenarios that only show up under messy production workloads.
+
 ## Are the benchmark comparisons fully audited?
 
 Not yet.

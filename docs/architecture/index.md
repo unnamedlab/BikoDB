@@ -29,8 +29,21 @@ Today the clearest story is:
 - multi-model helpers exist but are not yet described as one hardened transactional surface,
 - cluster and AI surface area are broader than the public operational story.
 
+## Questions evaluators usually ask
+
+The most important architecture questions are usually:
+
+- what is actually guaranteed today,
+- how far the transaction layer really goes,
+- how multi-model consistency should be interpreted,
+- what can be observed and operated confidently under real workloads.
+
+These docs now answer those questions explicitly instead of leaving them implicit in the code.
+
 ## Read next
 
 - [Transactions & concurrency →](/architecture/transactions)
 - [Multi-model consistency →](/architecture/multi-model-consistency)
+- [Supported guarantees →](/architecture/supported-guarantees)
+- [Operations & observability →](/architecture/operations-observability)
 - [Supported features & limitations →](/guide/supported-features)

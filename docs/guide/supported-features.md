@@ -96,6 +96,7 @@ What you should **not** assume today:
 - versioned cross-model isolation guarantees.
 
 See [multi-model consistency](/architecture/multi-model-consistency) for the current boundaries.
+See [supported guarantees](/architecture/supported-guarantees) for the shortest summary of what is safe to claim publicly.
 
 ## Operational limitations
 
@@ -111,6 +112,8 @@ But the repo does not yet present a complete operator-facing layer for:
 - query profiling,
 - timeout/cancel controls,
 - admission control and concurrency governance.
+
+See [operations & observability](/architecture/operations-observability) for the current operator-facing picture.
 
 ## Packaging limitations
 

@@ -15,6 +15,16 @@
   ·
   <a href="docs/guide/supported-features.md">Supported Features</a>
   ·
+  <a href="docs/architecture/supported-guarantees.md">Supported Guarantees</a>
+  ·
+  <a href="docs/architecture/operations-observability.md">Operations & Observability</a>
+  ·
+  <a href="docs/architecture/multi-model-consistency.md">Multi-model Consistency</a>
+  ·
+  <a href="docs/architecture/transactions.md">Transactions</a>
+  ·
+  <a href="docs/faq.md">FAQ</a>
+  ·
   <a href="BENCHMARK_COMPARISON.md">Benchmark Report</a>
 </p>
 
@@ -139,6 +149,66 @@ What is **not** yet a finished public contract:
 
 See [transactions & concurrency](docs/architecture/transactions.md) and [multi-model consistency](docs/architecture/multi-model-consistency.md).
 
+## Questions evaluators usually ask
+
+### How are cross-model write conflicts handled?
+
+The honest answer today is: **there is not yet a hardened public cross-model conflict-resolution contract**.
+
+BikoDB does support multi-model composition behind one embedded `Database` facade, but that should not currently be marketed as shared versioning, entity-level conflict detection, or atomic commit across graph + document + vector state.
+
+Read:
+
+- [Multi-model consistency](docs/architecture/multi-model-consistency.md)
+- [Supported guarantees](docs/architecture/supported-guarantees.md)
+
+### What can you safely claim about transactions and guarantees?
+
+The strongest guarantee story in the repo today is the **graph transaction layer**:
+
+- buffered graph writes,
+- commit/rollback support,
+- optional WAL-aware commit flow.
+
+That is real, but it is not the same thing as a full product-wide transactional contract across every public API and every model combination.
+
+Read:
+
+- [Transactions & concurrency](docs/architecture/transactions.md)
+- [Supported guarantees](docs/architecture/supported-guarantees.md)
+
+### What observability and workload controls exist today?
+
+The repo already includes:
+
+- `ResourceMonitor` counters and snapshots,
+- `AccessTracker` execution metrics,
+- `EXPLAIN` plan formatting,
+- live-query and async event hooks.
+
+What it does **not** yet expose as a finished operator-facing surface:
+
+- slow-query reporting,
+- query profiling workflows,
+- timeout/cancel control,
+- admission control for spikes and overload.
+
+Read:
+
+- [Operations & observability](docs/architecture/operations-observability.md)
+
+### How should people interpret benchmark claims?
+
+The safest public framing is:
+
+- BikoDB benchmark commands are reproducible from the repo,
+- the current cross-database markdown comparison is informative,
+- competitor values in the report should still be treated as reference/approximate rather than a fully audited neutral harness.
+
+Read:
+
+- [Benchmark methodology](docs/benchmarks/methodology.md)
+
 ## Operational reality today
 
 Useful internal primitives already exist:
@@ -180,7 +250,10 @@ Main entry points:
 - [Installation](docs/guide/installation.md)
 - [Quickstart](docs/guide/quickstart.md)
 - [Supported features & limitations](docs/guide/supported-features.md)
+- [Supported guarantees](docs/architecture/supported-guarantees.md)
+- [Operations & observability](docs/architecture/operations-observability.md)
 - [Transactions & concurrency](docs/architecture/transactions.md)
+- [Multi-model consistency](docs/architecture/multi-model-consistency.md)
 - [Benchmark methodology](docs/benchmarks/methodology.md)
 - [FAQ](docs/faq.md)
 
