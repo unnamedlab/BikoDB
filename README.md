@@ -2,8 +2,6 @@
   <img src="image/logo.png" alt="BikoDB" width="320">
 </p>
 
-<h1 align="center">BikoDB</h1>
-
 <p align="center">
   Multi-model graph runtime in Rust for graph, document, and vector workloads.
 </p>
